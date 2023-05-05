@@ -1,5 +1,5 @@
 const DEFAULT =
-  'uppercase text-center inline-block px-5 py-3 rounded-md font-bold text-primary transition duration-300'
+  'uppercase text-center inline-block px-5 py-3 rounded-md font-bold text-primary transition duration-300 hover:no-underline'
 
 interface ButtonProps {
   href?: string
@@ -20,7 +20,7 @@ export function Button({
   }[type]
   if (href) {
     return (
-      <a {...props} href={href} className={`${DEFAULT} ${buttonType} duration`}>
+      <a {...props} href={href} className={`${DEFAULT} ${buttonType}`}>
         {children}
       </a>
     )

@@ -1,7 +1,11 @@
 import { Section } from './Section'
 
-function ListItem({ children }: { children: any }) {
-  return <li className="text-lg mb-1">{children}</li>
+function ListItem({ children, href }: { children: any; href: string }) {
+  return (
+    <li className="text-lg mb-1">
+      <a href={href}>{children}</a>
+    </li>
+  )
 }
 
 function Column({
@@ -33,25 +37,27 @@ export function Footer() {
       <Section type="primary">
         <div className="flex flex-col lg:flex-row lg:justify-between gap-6 lg:gap-24">
           <Column header="Top Cities">
-            <ListItem>Calgary</ListItem>
-            <ListItem>Toronto</ListItem>
-            <ListItem>Los Angeles</ListItem>
-            <ListItem>Vancouver</ListItem>
-            <ListItem>Calgary</ListItem>
-            <ListItem>Toronto</ListItem>
-            <ListItem>Los Angeles</ListItem>
-            <ListItem>Vancouver</ListItem>
-            <ListItem>Calgary</ListItem>
-            <ListItem>Toronto</ListItem>
-            <ListItem>Los Angeles</ListItem>
-            <ListItem>Vancouver</ListItem>
+            <ListItem href="/reviews?city=Calgary">Calgary</ListItem>
+            <ListItem href="/reviews?city=Toronto">Toronto</ListItem>
+            <ListItem href="/reviews?city=Los Angeles">Los Angeles</ListItem>
+            <ListItem href="/reviews?city=Vancouver">Vancouver</ListItem>
+            <ListItem href="/reviews?city=Denver">Denver</ListItem>
+            <ListItem href="/reviews?city=Montreal">Montreal</ListItem>
+            <ListItem href="/reviews?city=Ottawa">Ottawa</ListItem>
+            <ListItem href="/reviews?city=Grande Prairie">
+              Grande Prairie
+            </ListItem>
+            <ListItem href="/reviews?city=Calgary">Calgary</ListItem>
+            <ListItem href="/reviews?city=Calgary">Toronto</ListItem>
+            <ListItem href="/reviews?city=Calgary">Los Angeles</ListItem>
+            <ListItem href="/reviews?city=Calgary">Vancouver</ListItem>
           </Column>
           <Column header="About" noColumns>
-            <ListItem>About Us</ListItem>
+            <ListItem href="/about">About Us</ListItem>
           </Column>
           <Column header="Support" noColumns>
-            <ListItem>Support Center</ListItem>
-            <ListItem>Contact Us</ListItem>
+            <ListItem href="/support">Support Center</ListItem>
+            <ListItem href="/contact">Contact Us</ListItem>
           </Column>
         </div>
         <p className="mt-10">

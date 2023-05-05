@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+  cursor: pointer;
+}
