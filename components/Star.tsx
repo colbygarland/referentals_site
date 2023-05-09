@@ -1,14 +1,19 @@
 interface StarProps {
   fill: string
+  size?: 'small' | 'default'
 }
-export function Star({ fill }: StarProps) {
+export function Star({ fill, size = 'default' }: StarProps) {
+  const starSize = {
+    small: 'h-5 w-5',
+    default: 'h-10 w-10',
+  }[size]
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid meet"
       version="1.0"
       viewBox="0.0 0.0 501.1 477.0"
-      className={`${fill} w-10 h-10`}
+      className={`${fill} ${starSize}`}
     >
       <g id="__id124_s163jqww2b">
         <path

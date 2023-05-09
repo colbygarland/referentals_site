@@ -16,4 +16,5 @@ export interface Review {
     created_at: string
     updated_at: string
   }
+  rating: number
 }
