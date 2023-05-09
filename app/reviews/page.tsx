@@ -63,7 +63,7 @@ export default async function Page() {
   }
 
   return (
-    <main className="">
+    <>
       <Section type="primary">
         <H1>Read rental reviews in your city</H1>
         <Body>
@@ -89,6 +89,6 @@ export default async function Page() {
           <Button href="/write-review">Write a review</Button>
         </div>
       </Section>
-    </main>
+    </>
   )
 }

@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <Header />
-        {children}
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

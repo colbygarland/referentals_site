@@ -1,9 +1,10 @@
+import Link from 'next/link'
 import { Section } from './Section'
 
 function ListItem({ children, href }: { children: any; href: string }) {
   return (
     <li className="text-lg mb-1">
-      <a href={href}>{children}</a>
+      <Link href={href}>{children}</Link>
     </li>
   )
 }
@@ -53,7 +54,7 @@ export function Footer() {
             <ListItem href="/reviews?city=Calgary">Vancouver</ListItem>
           </Column>
           <Column header="About" noColumns>
-            <ListItem href="/about">About Us</ListItem>
+            <ListItem href="/about-us">About Us</ListItem>
           </Column>
           <Column header="Support" noColumns>
             <ListItem href="/support">Support Center</ListItem>

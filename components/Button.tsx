@@ -16,7 +16,7 @@ export function Button({
 }: ButtonProps) {
   const buttonType = {
     primary: 'bg-primary-800 hover:bg-primary-600 text-white',
-    secondary: 'bg-secondary-100 hover:bg-secondary-200',
+    secondary: 'bg-secondary-100 hover:bg-secondary-200 text-primary-800',
   }[type]
   if (href) {
     return (
