@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const DEFAULT =
   'uppercase text-center inline-block px-5 py-3 rounded-md font-bold text-primary transition duration-300 hover:no-underline'
 
@@ -20,9 +22,9 @@ export function Button({
   }[type]
   if (href) {
     return (
-      <a {...props} href={href} className={`${DEFAULT} ${buttonType}`}>
+      <Link {...props} href={href} className={`${DEFAULT} ${buttonType}`}>
         {children}
-      </a>
+      </Link>
     )
   }
 
