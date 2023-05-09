@@ -1,7 +1,5 @@
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
-import { Footer } from '@/components/Footer'
-import { Header } from '@/components/Header'
 import { Section } from '@/components/Section'
 import { Star } from '@/components/Star'
 
@@ -9,7 +7,6 @@ import { Star } from '@/components/Star'
 export default function Reviews() {
   return (
     <>
-      <Header />
       <main>
         <section className="py-16 relative">
           <img
@@ -107,7 +104,6 @@ export default function Reviews() {
           </div>
         </Section>
       </main>
-      <Footer />
     </>
   )
 }

@@ -1,24 +1,72 @@
+import { Button } from '@/components/Button'
+import { Section } from '@/components/Section'
+import { Body, H1, H2 } from '@/components/Typography'
 import { Review } from '@/types/review'
 
-export default async function Reviews() {
-  let response = null
+function Reviews({ reviews }: { reviews: Review[] | null }) {
+  if (!reviews) {
+    return <H2>Sorry, no results found.</H2>
+  }
+
+  return (
+    <>
+      {reviews.map((review: Review) => {
+        return (
+          <div key={review.id} className="border border-black py-6 px-4">
+            <h2 className="font-bold text-black text-lg mb-6">
+              {review.rental.address}
+            </h2>
+            <Body>{review.review}</Body>
+            <a
+              href={`/reviews/${review.id}`}
+              className="mt-6 block underline"
+              aria-label={`Read more about the ${review.rental.address} review`}
+            >
+              Read more...
+            </a>
+          </div>
+        )
+      })}
+    </>
+  )
+}
+
+export default async function Page() {
+  let reviews = null
   try {
-    response = await fetch(`${process.env.API_URL}/reviews`)
-    response = await response.json()
+    const response = await fetch(`${process.env.API_URL}/reviews`)
+    reviews = await response.json()
   } catch (error) {
     console.error(error)
   }
 
   return (
-    <main className="h-screen bg-teal-400">
-      {response?.map((j: Review) => {
-        return (
-          <div key={j.id}>
-            <p>{j.review}</p>
-            <p>{j.rental.address}</p>
-          </div>
-        )
-      })}
+    <main className="">
+      <Section type="primary">
+        <H1>Read rental reviews in your city</H1>
+        <Body>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </Body>
+        <div className="mt-6">
+          <input
+            className="bg-white rounded-lg py-2 px-4 text-black placeholder-black font-bold w-2/3"
+            type="search"
+            placeholder="Search rental by address..."
+          />
+        </div>
+      </Section>
+      <Section>
+        <div className="flex flex-col gap-4 lg:gap-10">
+          <Reviews reviews={reviews} />
+        </div>
+      </Section>
+      <Section type="tertiary">
+        <div className="text-center">
+          <H2>Are you ready to review your rental?</H2>
+          <Button href="/write-review">Write a review</Button>
+        </div>
+      </Section>
     </main>
   )
 }

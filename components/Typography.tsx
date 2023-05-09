@@ -2,14 +2,16 @@ interface H1Props {
   children: any
 }
 export function H1({ children }: H1Props) {
-  return <h1 className="">{children}</h1>
+  return (
+    <h1 className="font-bold text-3xl lg:text-5xl mb-3 lg:mb-6">{children}</h1>
+  )
 }
 
 interface H2Props {
   children: any
 }
-export function H12({ children }: H2Props) {
-  return <h2 className="">{children}</h2>
+export function H2({ children }: H2Props) {
+  return <h2 className="text-4xl font-bold mb-20">{children}</h2>
 }
 
 interface H3Props {
@@ -38,4 +40,11 @@ interface H6Props {
 }
 export function H6({ children }: H6Props) {
   return <h6 className="">{children}</h6>
+}
+
+interface BodyProps {
+  children: any
+}
+export function Body({ children }: BodyProps) {
+  return <p className="mb-2">{children}</p>
 }

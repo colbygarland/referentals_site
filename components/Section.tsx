@@ -2,7 +2,7 @@ import { Container } from './Container'
 
 interface SectionProps {
   children: any
-  type?: 'default' | 'primary' | 'secondary'
+  type?: 'default' | 'primary' | 'secondary' | 'tertiary'
   fullWidth?: boolean
 }
 export function Section({
@@ -14,6 +14,7 @@ export function Section({
   const backgroundColor = {
     primary: 'bg-primary-800 text-white',
     secondary: 'bg-secondary-100 text-primary',
+    tertiary: 'bg-tertiary-400 text-primary',
     default: 'bg-white text-primary',
   }[type]
   return (
