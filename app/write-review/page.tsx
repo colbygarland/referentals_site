@@ -5,7 +5,7 @@ import { InputGroup } from '@/components/forms/InputGroup'
 import { RadioGroup } from '@/components/forms/RadioGroup'
 import { SelectGroup } from '@/components/forms/SelectGroup'
 import { TextAreaGroup } from '@/components/forms/TextAreaGroup'
-import { listCategories } from '@/utils/api'
+import { listCategories, storeReview } from '@/utils/api'
 
 export default async function WriteReview() {
   const categories = await listCategories()
@@ -26,7 +26,7 @@ export default async function WriteReview() {
         {categories?.map((category, index) => (
           <RadioGroup key={index} label={category.name} name={category.name} />
         ))}
-        <Button>Submit</Button>
+        <Button buttonType="submit">Submit</Button>
       </form>
     </Section>
   )

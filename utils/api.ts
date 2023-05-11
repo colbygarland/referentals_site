@@ -1,5 +1,5 @@
 import { Category } from '@/types/category'
-import { Review } from '@/types/review'
+import { Review, ReviewRequest } from '@/types/review'
 
 export const listReviews = async (): Promise<Review[] | null> => {
   let reviews = null
@@ -10,6 +10,25 @@ export const listReviews = async (): Promise<Review[] | null> => {
     console.error(error)
   }
   return reviews
+}
+
+export const storeReview = async (
+  data: ReviewRequest,
+): Promise<Review | null> => {
+  let review = null
+  try {
+    const response = await fetch(`${process.env.API_URL}/reviews/store`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    review = await response.json()
+  } catch (error) {
+    console.error(error)
+  }
+  return review
 }
 
 export const listCategories = async (): Promise<Category[] | null> => {

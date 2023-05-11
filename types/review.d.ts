@@ -18,3 +18,13 @@ export interface Review {
   }
   rating: number
 }
+
+export interface ReviewRequest {
+  review: string
+  address: string
+  type: string
+  categories: {
+    category_id: number
+    rating: number
+  }[]
+}

@@ -7,6 +7,7 @@ interface ButtonProps {
   href?: string
   onClick?: any
   type?: 'primary' | 'secondary'
+  buttonType?: string
   children: any
 }
 export function Button({
