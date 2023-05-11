@@ -3,6 +3,7 @@ import { Section } from '@/components/Section'
 import { Star } from '@/components/Star'
 import { Body, H1, H2 } from '@/components/Typography'
 import { Review } from '@/types/review'
+import { listReviews } from '@/utils/api'
 
 function Reviews({ reviews }: { reviews: Review[] | null }) {
   if (!reviews) {
@@ -75,13 +76,7 @@ function Reviews({ reviews }: { reviews: Review[] | null }) {
 }
 
 export default async function Page() {
-  let reviews = null
-  try {
-    const response = await fetch(`${process.env.API_URL}/reviews`)
-    reviews = await response.json()
-  } catch (error) {
-    console.error(error)
-  }
+  const reviews = await listReviews()
 
   return (
     <>
